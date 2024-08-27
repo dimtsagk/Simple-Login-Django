@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DT-Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: silver;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            width: 300px;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome! 😎</h1>
+        {% if user.is_authenticated %}
+            <p>Hello, <b>{{ user.username }}! </b>
+
+                <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> or <a href="{% url 'signup' %}">Sign Up</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>
