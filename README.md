@@ -1,5 +1,5 @@
 # dt_django_login
-Django simple signup/login app.
+Django simple signup/login app, with SQLite.
 
 
 ![django-login3](https://github.com/user-attachments/assets/cde48ecc-8ae1-4741-a83e-f165347ab51e)
